@@ -1,10 +1,17 @@
 apply plugin: 'java'
 apply plugin: 'groovy'
 apply plugin: 'scala'
-apply plugin: 'war'
 
 sourceCompatability = 1.7
 targetCompatability = 1.7
+
+group = 'com.chriswk'
+artifactId = 'insane'
+version = '1.0'
+
+if(!System.properties.'release') {
+    version += '-SNAPSHOT'
+}
 
 repositories {
     mavenCentral()
