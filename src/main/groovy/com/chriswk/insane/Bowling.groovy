@@ -1,14 +1,27 @@
 package com.chriswk.insane
 
 class Bowling {
-    def total = 0
+    private frames
+    private framesInGame
+    
+    public Bowling() {
+        framesInGame = 10
+        frames = new FrameSequence(framesInGame)
+    }
+    
+    public Bowling(int framesInGame) {
+        this.framesInGame = framesInGame
+        frames = new FrameSequence(framesInGame)
+    }    
 
-
-    def score() {
-        0
+    public roll(int roll) {
+        frames.roll(roll)
+    }
+    public roll(Iterator rolls) {
+        frames.populateWith(rolls)
     }
 
-    def roll(int rollScore) {
-        total += rollScore
+    public score() {
+        frames.score()
     }
 }

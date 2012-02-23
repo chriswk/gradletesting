@@ -16,7 +16,7 @@ class BowlingSpec extends FunSpec {
             for(i <- 1 to 20) {
                 b.roll(1)
             }
-            assert(b.score === 0)
+            assert(b.score === 20)
         }
     }
 }

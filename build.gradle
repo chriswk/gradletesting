@@ -1,17 +1,10 @@
 apply plugin: 'java'
 apply plugin: 'groovy'
 apply plugin: 'scala'
+apply plugin: 'project-report'
 
-sourceCompatability = 1.7
-targetCompatability = 1.7
-
-group = 'com.chriswk'
-artifactId = 'insane'
-version = '1.0'
-
-if(!System.properties.'release') {
-    version += '-SNAPSHOT'
-}
+sourceCompatability = javaVersion
+targetCompatability = javaVersion
 
 repositories {
     mavenCentral()
@@ -32,7 +25,7 @@ dependencies {
     scalaTools group: 'org.scala-lang', name:'scala-library', version: scalaVersion
     compile group:'org.scala-lang', name:'scala-library', version: scalaVersion
 
-    //Specs2 testing
+    //Scalatest testing
     testCompile group: 'org.scalatest', name: "scalatest_${scalaVersion}", version: '1.7.1'
 
     //Groovy library
