@@ -44,3 +44,19 @@ downloadSdk = true
 task wrapper(type: Wrapper, description: "Creates Gradle wrapper") {
     gradleVersion = desiredGradleVersion
 }
+
+task scalatest(dependsOn: testClasses) << {
+    ant.taskdef(
+        name:'scalatest',
+        classname: 'org.scalatest.tools.ScalaTestAntTask',
+        classpath: sourceSets.test.runtimeClasspath.asPath
+    )
+    ant.scalatest(
+        runpath: output.test.classesDir,
+        haltonfailure: 'true',
+        fork: 'false'
+    ) {
+        reporter(type: 'stdout')
+    }
+}
+
