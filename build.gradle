@@ -41,11 +41,11 @@ dependencies {
 
 downloadSdk = true
 //Add wrapper task to automatically create gradlew
-task wrapper(type: Wrapper, description: "Creates Gradle wrapper") {
+task wrapper(type: Wrapper, description: "Creates Gradle wrapper (${desiredGradleVersion})") {
     gradleVersion = desiredGradleVersion
 }
 
-task scalatest(dependsOn: testClasses, description: "Run ScalaTest runner") {
+task scalatest(dependsOn: testClasses, description: "Run ScalaTest runner", type: Test) << {
     ant.taskdef(
         name:'scalatest',
         classname: 'org.scalatest.tools.ScalaTestAntTask',
@@ -60,4 +60,5 @@ task scalatest(dependsOn: testClasses, description: "Run ScalaTest runner") {
         reporter(type: 'junitxml', directory: testResultsDir)
     }
 }
+
 
