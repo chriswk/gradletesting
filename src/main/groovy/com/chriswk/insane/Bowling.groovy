@@ -1,3 +1,4 @@
+package com.chriswk.insane
 
 class Bowling {
     

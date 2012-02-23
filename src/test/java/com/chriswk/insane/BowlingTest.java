@@ -1,3 +1,5 @@
+package com.chriswk.insane;
+
 import org.junit.Test;
 import org.junit.Before;
 

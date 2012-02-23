@@ -3,21 +3,44 @@ apply plugin: 'groovy'
 apply plugin: 'scala'
 apply plugin: 'war'
 
+sourceCompatability = 1.7
+targetCompatability = 1.7
 
 repositories {
     mavenCentral()
+    maven {
+      url "http://m2repo.spockframework.org/snapshots"
+    }
+    maven {
+      url "http://m2repo.spockframework.org/releases"
+    }
+    maven {
+      url "http://oss.sonatype.org/content/repositories/releases"
+    }
 }
-
 
 dependencies {
     //Scala dependencies
-    scalaTools group: 'org.scala-lang', name:'scala-compiler', version:'2.9.1'
-    scalaTools group: 'org.scala-lang', name:'scala-library', version:'2.9.1'
-    compile group:'org.scala-lang', name:'scala-library', version:'2.9.1'
+    scalaTools group: 'org.scala-lang', name:'scala-compiler', version: scalaVersion
+    scalaTools group: 'org.scala-lang', name:'scala-library', version: scalaVersion
+    compile group:'org.scala-lang', name:'scala-library', version: scalaVersion
+
+    //Specs2 testing
+    testCompile group: 'org.scalatest', name: "scalatest_${scalaVersion}", version: '1.7.1'
 
     //Groovy library
-    groovy group:'org.codehaus.groovy', name: 'groovy', version:'1.8.5'
+    groovy group:'org.codehaus.groovy', name: 'groovy', version: groovyVersion
+    //Spock testing
+    testCompile group:'org.spockframework', name:'spock-core', version:'0.6-groovy-1.8-SNAPSHOT'
 
     //Test dependencies
+    //JUnit testing
     testCompile group:'junit', name: 'junit', version:'4.10'
+
+}
+
+downloadSdk = true
+//Add wrapper task to automatically create gradlew
+task wrapper(type: Wrapper, description: "Creates Gradle wrapper") {
+    gradleVersion = desiredGradleVersion
 }
