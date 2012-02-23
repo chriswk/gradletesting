@@ -9,4 +9,5 @@ class BowlingSpec extends FlatSpec with ShouldMatchers {
         val game = new Bowling
         game.score should equal (0)
     }
+    
 }
