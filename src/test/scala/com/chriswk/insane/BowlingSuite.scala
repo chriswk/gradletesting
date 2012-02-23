@@ -30,7 +30,7 @@ class BowlingSpec extends FunSpec with ShouldMatchers with BeforeAndAfter {
                 game.roll(1)
             }
             game.roll(9)
-            game.score should equal(199)
+            game.score should equal(190)
         }
     }
 
