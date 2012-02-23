@@ -1,4 +1,4 @@
-package com.chriswk.insane
+package com.chriswk.insane.bowling
 
 import org.scalatest.FunSpec
 import org.scalatest.BeforeAndAfter
