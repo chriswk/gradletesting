@@ -1,4 +1,4 @@
-package com.chriswk.insane
+package com.chriswk.insane.bowling
 class Frame {
     private nextFrame
     private rolls = []
