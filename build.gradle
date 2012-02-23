@@ -1,0 +1,23 @@
+apply plugin: 'java'
+apply plugin: 'groovy'
+apply plugin: 'scala'
+apply plugin: 'war'
+
+
+repositories {
+    mavenCentral()
+}
+
+
+dependencies {
+    //Scala dependencies
+    scalaTools group: 'org.scala-lang', name:'scala-compiler', version:'2.9.1'
+    scalaTools group: 'org.scala-lang', name:'scala-library', version:'2.9.1'
+    compile group:'org.scala-lang', name:'scala-library', version:'2.9.1'
+
+    //Groovy library
+    groovy group:'org.codehaus.groovy', name: 'groovy', version:'1.8.5'
+
+    //Test dependencies
+    testCompile group:'junit', name: 'junit', version:'4.10'
+}
