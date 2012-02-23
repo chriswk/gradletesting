@@ -57,6 +57,7 @@ task scalatest(dependsOn: testClasses) << {
         fork: 'false'
     ) {
         reporter(type: 'stdout')
+        reporter(type: 'junitxml', directory: testResultsDir)
     }
 }
 
